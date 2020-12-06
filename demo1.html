@@ -5,8 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BASED WEBPAGE</title>
 </head>
-<body background="https://scontent-lim1-1.xx.fbcdn.net/v/t1.15752-9/123471766_385091682622790_4539586109955069832_n.png?_nc_cat=110&ccb=2&_nc_sid=ae9488&_nc_ohc=pTadrHmHIHEAX_uoZiZ&_nc_ht=scontent-lim1-1.xx&oh=dc9f9096417f40a57c4efabe66320ad5&oe=5FC6C936">
+<body background="">
     <h1>Bienvenidos sean, aquí se encuentran todos los basados</h1>
+
+
+
+<input type="text" id="entrada" onkeyup="ramirez(this.value);">
+
+<br>        
+<br>
+<br>        
+<br>
+<br>        
+<br>
+<br>        
+<br>
+<textarea name="Result" id="Result" cols="30" rows="10"></textarea>
+
 <script>
     const parseText = (text) => {
   let appendM = ['a', 'e', 'i', 'o', 'u']
@@ -40,7 +55,12 @@
   })
 
   return res
+};
+
+function ramirez(texto) {
+    document.getElementById("Result").value=parseText(texto);
 }
+
 </script>
     <p>
         Primera prueba para saber que todo funciona correctamente, <b>jeje, ya sabrán de mí</b>
