@@ -7,7 +7,41 @@
 </head>
 <body background="https://scontent-lim1-1.xx.fbcdn.net/v/t1.15752-9/123471766_385091682622790_4539586109955069832_n.png?_nc_cat=110&ccb=2&_nc_sid=ae9488&_nc_ohc=pTadrHmHIHEAX_uoZiZ&_nc_ht=scontent-lim1-1.xx&oh=dc9f9096417f40a57c4efabe66320ad5&oe=5FC6C936">
     <h1>Bienvenidos sean, aquí se encuentran todos los basados</h1>
+<script>
+    const parseText = (text) => {
+  let appendM = ['a', 'e', 'i', 'o', 'u']
+  let exclude = [[/my/g, 'y'], [/ml/g, 'l'], [/ma/g, 'a'], [/mu/g, 'u']]
+  let replace = [/n/g]
+  let textSplit = text.replace(/\\n/g, '\n').split('')
 
+  let res = textSplit
+      .map(char => {
+              return appendM.indexOf(char) !== -1 ? char+'m' : char
+      })
+      .join('')
+      .split('')
+
+  const removeDuplicate = (char, i) => !((res[i-1] === 'm') && (char === 'm'))
+
+  res = res
+      .filter(removeDuplicate)
+      .join('')
+
+  replace.forEach(regex => {
+      res = res.replace(regex, 'm')
+  })
+  res = res
+      .split('')
+      .filter(removeDuplicate)
+      .join('')
+
+  exclude.forEach(regex => {
+      res = res.replace(regex[0], regex[1])
+  })
+
+  return res
+}
+</script>
     <p>
         Primera prueba para saber que todo funciona correctamente, <b>jeje, ya sabrán de mí</b>
     </p>
