@@ -64,7 +64,10 @@ function ramirez(texto) {
     document.getElementById("Result").value=parseText(texto);
 }
     document.onkeydown= function(){return false};
-
+    document.oncontextmenu = function (e) {
+  e.preventDefault();
+  alert("Sigueme en instagram si te gusta mi trabajo :,)");
+ }
 
 </script>
     <p>
