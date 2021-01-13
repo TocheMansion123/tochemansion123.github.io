@@ -1,79 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BASED WEBPAGE</title>
 </head>
+
 <body background="https://i.redd.it/h55w432gc9x41.jpg">
-    <h1>Creado por : Joseph Rodríguez  ig: micshow_05</h1>
+    <div>
+        <h1>Creado por : Joseph Rodríguez ig: micshow_05</h1>
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/DXXWmo4cSek" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/DXXWmo4cSek" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+    <div style="padding-bottom: 10px;">
+        <input type="text" id="entrada" onkeyup="ramirez(this.value);" style="border: solid black 2px;">
+    </div>
+    <div>
+        <textarea name="Result" id="Result" cols="30" rows="10"></textarea>
+    </div>
 
 
 
 
-<input type="text" id="entrada" onkeyup="ramirez(this.value);">
 
-<br>        
-<br>
-<br>        
-<br>
-<br>        
-<br>
-<br>        
-<br>
-<textarea name="Result" id="Result" cols="30" rows="10"></textarea>
 
-<script>
-    const parseText = (text) => {
-  let appendM = ['a', 'e', 'i', 'o', 'u']
-  let exclude = [[/my/g, 'y'], [/ml/g, 'l'], [/ma/g, 'a'], [/mu/g, 'u']]
-  let replace = [/n/g]
-  let textSplit = text.replace(/\\n/g, '\n').split('')
 
-  let res = textSplit
-      .map(char => {
-              return appendM.indexOf(char) !== -1 ? char+'m' : char
-      })
-      .join('')
-      .split('')
 
-  const removeDuplicate = (char, i) => !((res[i-1] === 'm') && (char === 'm'))
 
-  res = res
-      .filter(removeDuplicate)
-      .join('')
 
-  replace.forEach(regex => {
-      res = res.replace(regex, 'm')
-  })
-  res = res
-      .split('')
-      .filter(removeDuplicate)
-      .join('')
 
-  exclude.forEach(regex => {
-      res = res.replace(regex[0], regex[1])
-  })
+    <script>
+        const parseText = (text) => {
+            let appendM = ['a', 'e', 'i', 'o', 'u']
+            let exclude = [[/my/g, 'y'], [/ml/g, 'l'], [/ma/g, 'a'], [/mu/g, 'u']]
+            let replace = [/n/g]
+            let textSplit = text.replace(/\\n/g, '\n').split('')
 
-  return res
-};
+            let res = textSplit
+                .map(char => {
+                    return appendM.indexOf(char) !== -1 ? char + 'm' : char
+                })
+                .join('')
+                .split('')
 
-function ramirez(texto) {
-    document.getElementById("Result").value=parseText(texto);
-}
-    document.onkeydown= function(){return false};
-    document.oncontextmenu = function (e) {
-  e.preventDefault();
-  return false
- }
+            const removeDuplicate = (char, i) => !((res[i - 1] === 'm') && (char === 'm'))
 
-alert("Hola, hice esto con el propósito de que ya no tengan que poner una m a todo, espero disfruten esto, los tqm");
-</script>
+            res = res
+                .filter(removeDuplicate)
+                .join('')
+
+            replace.forEach(regex => {
+                res = res.replace(regex, 'm')
+            })
+            res = res
+                .split('')
+                .filter(removeDuplicate)
+                .join('')
+
+            exclude.forEach(regex => {
+                res = res.replace(regex[0], regex[1])
+            })
+
+            return res
+        };
+
+        function ramirez(texto) {
+            document.getElementById("Result").value = parseText(texto);
+        }
+        document.onkeydown = function (e) {
+
+            if (event.keyCode == 123) { // Prevent F12
+                return false;
+            } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
+                return false;
+            }
+        };
+
+        document.oncontextmenu = function (e) {
+            e.preventDefault();
+            return false
+        }
+
+        alert("Hola, hice esto con el propósito de que ya no tengan que poner una m a todo, espero disfruten esto, los tqm");
+    </script>
     <p>
         Primera prueba para saber que todo funciona correctamente, <b>jeje, ya sabrán de mí</b>
     </p>
+    <img
+        src="https://scontent.flim11-1.fna.fbcdn.net/v/t1.0-9/130123526_810940556118665_5490409084184863208_n.jpg?_nc_cat=106&ccb=2&_nc_sid=dbeb18&_nc_ohc=DaEcp4_gj_oAX-HPDl4&_nc_ht=scontent.flim11-1.fna&oh=cb2457e841dfb21f8046090c12de8f07&oe=5FF267FD">
+
 </body>
-<img src="https://scontent.flim11-1.fna.fbcdn.net/v/t1.0-9/130123526_810940556118665_5490409084184863208_n.jpg?_nc_cat=106&ccb=2&_nc_sid=dbeb18&_nc_ohc=DaEcp4_gj_oAX-HPDl4&_nc_ht=scontent.flim11-1.fna&oh=cb2457e841dfb21f8046090c12de8f07&oe=5FF267FD"> 
+
 </html>
