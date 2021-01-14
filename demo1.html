@@ -34,6 +34,7 @@
 
     <script>
         const parseText = (text) => {
+            text =  text.toLowerCase();
             let appendM = ['a', 'e', 'i', 'o', 'u']
             let exclude = [[/my/g, 'y'], [/ml/g, 'l'], [/ma/g, 'a'], [/mu/g, 'u']]
             let replace = [/n/g]
